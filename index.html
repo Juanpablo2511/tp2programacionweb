@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="Assets/css/home.css">
 </head>
  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></scriptsrc>></script>
@@ -23,6 +24,23 @@ $(document).ready(function() {
     animarOverlay();
 });
 </script>
+<!-- script para el contador -->
+ <script>
+$(document).ready(function() {
+    $('.numero').each(function() {
+        var $this = $(this);
+        var countTo = parseInt($this.text());
+        var count = 0;
+        var intervalo = setInterval(function() {
+            count++;
+            $this.text(count);
+            if (count >= countTo) {
+                clearInterval(intervalo);
+            }
+        }, 50);
+    });
+});
+ </script>
 <body>
    
     <header role="banner">
@@ -87,14 +105,13 @@ $(document).ready(function() {
 
     <main role="main">
 <!-- Sección hero con video -->
-        <section class="lugares" aria-label="Sección hero con video">
-            <div><h1>Lugares mas visitados</h1></div>
-            <video src="Assets/video/YTDown.com_Shorts_Cerro-de-los-7-colores-Purmamarca_Media_oXQhgATPeMg_002_720p.mp4" autoplay loop muted aria-hidden="true"></video>
-            
-            <div class="overlay" .Slidedown (1000)>
-                <h1>El Cerro de los Siete Colores es una formación montañosa famosa por sus distintos tonos naturales, originados por sedimentos minerales.</h1>
-            </div>
-        </section>
+      <section class="lugares" aria-label="Sección hero con video">
+    <div class="lugares-titulo"><h1>Lugares mas visitados</h1></div>
+    <video src="Assets/video/YTDown.com_Shorts_Cerro-de-los-7-colores-Purmamarca_Media_oXQhgATPeMg_002_720p.mp4" autoplay loop muted aria-hidden="true"></video>
+    <div class="overlay">
+        <h1>El Cerro de los Siete Colores es una formación montañosa famosa por sus distintos tonos naturales, originados por sedimentos minerales.</h1>
+    </div>
+</section>
 <!-- Fin de la sección hero -->
 <!-- Cards de destinos -->
         <section class="Cards" aria-label="Destinos destacados">
@@ -156,7 +173,7 @@ $(document).ready(function() {
                 <p>Recomendaciones de viajeros</p>
             </div>
             <div class="visitas">
-                <h2 class="numero">10</h2>
+                <h2 class="numero">40</h2>
                 <p>Experiencias compartidas</p>
             </div>
         </section>
@@ -167,48 +184,78 @@ $(document).ready(function() {
             <input type="radio" name="testimonio" id="t2" class="punto" aria-label="Testimonio 2">
             <input type="radio" name="testimonio" id="t3" class="punto" aria-label="Testimonio 3">
 
-            <div class="carrusel">
-                <div class="testimonio">
-                    <h2>Juan Perez</h2>
-                    <h3>Lugar al que viajo: Termas de reyes</h3>
-                    <p>Me encantó este lugar, es increíblemente hermoso y la gente es muy amable.</p>
-                    <img src="Assets/images/Termas de reyes.webp" alt="Termas de Reyes">
-                </div>
-                <div class="testimonio">
-                    <h2>Maria Gomez</h2>
-                    <h3>Lugar al que viajo: Cerro de 7 colores</h3>
-                    <p>Una experiencia inolvidable, definitivamente volveré a visitar este lugar.</p>
-                    <img src="Assets/images/cerro-de-los-siete-colores.webp" alt="Cerro de los Siete Colores">
-                </div>
-                <div class="testimonio">
-                    <h2>Carlos Rodriguez</h2>
-                    <h3>Lugar al que viajo: Las Salinas</h3>
-                    <p>Las vistas son impresionantes, especialmente al atardecer.</p>
-                    <img src="Assets/images/las salinas.webp" alt="Las Salinas">
-                </div>
-            </div>
+<div class="carousel slide" id="test" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active testimonio">
+            <h2>Juan Perez</h2>
+            <h3>Lugar al que viajo: Termas de reyes</h3>
+            <p>Me encantó este lugar, es increíblemente hermoso y la gente es muy amable.</p>
+            <img src="Assets/images/Termas de reyes.webp" alt="Termas de Reyes">
+        </div>
+        <div class="carousel-item testimonio">
+            <h2>Maria Gomez</h2>
+            <h3>Lugar al que viajo: Cerro de 7 colores</h3>
+            <p>Una experiencia inolvidable, definitivamente volveré a visitar este lugar.</p>
+            <img src="Assets/images/cerro-de-los-siete-colores.webp" alt="Cerro de los Siete Colores">
+        </div>
+        <div class="carousel-item testimonio">
+            <h2>Carlos Rodriguez</h2>
+            <h3>Lugar al que viajo: Las Salinas</h3>
+            <p>Las vistas son impresionantes, especialmente al atardecer.</p>
+            <img src="Assets/images/las salinas.webp" alt="Las Salinas">
+        </div>
+    </div>
+    <button class="carousel-control-prev" data-bs-target="#test" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" ></span>
+
+    </button>
+    <button class="carousel-control-next" data-bs-target="#test" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+</div>
         </section>
 <!-- Fin de los testimonios -->
-        <button onclick="toggleDarkMode()" aria-label="Activar modo oscuro">Modo oscuro</button>
+        <button class="btn-darkmode" onclick="toggleDarkMode()">Modo oscuro</button>
     </main>
-
-    <footer role="contentinfo">
-        <ul>
-            <li><a href="pages/Contacto.html" aria-label="Ir a contacto">Contacto</a></li>
-            <li><a href="https://maps.app.goo.gl/j1ZGdCBHEbtTEC1y9" aria-label="Ver ubicación en mapa">Donde ubicarnos</a></li>
-        </ul>
-        <form id="newsletter" aria-label="Formulario de suscripción">
-            <input type="email" placeholder="Ingresa tu correo" required aria-label="Correo electrónico">
-            <button type="submit" aria-label="Suscribirse al newsletter">Suscribirse</button>
-        </form>
-    </footer>
-   
-    
-    <script>
+ <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark");
         }
     </script>
+    <!-- footer -->
+    <footer role="contentinfo">
+        <ul>
+            <li><a href="pages/Contacto.html" aria-label="Ir a contacto">Contacto</a></li>
+            <li><a href="https://maps.app.goo.gl/j1ZGdCBHEbtTEC1y9" aria-label="Ver ubicación en mapa">Donde ubicarnos</a></li>
+            <a href="https://www.instagram.com" aria-label="Nuestro Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com" aria-label="Nuestro Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.twitter.com" aria-label="Nuestro Twitter"><i class="bi bi-twitter"></i></a>
+        </ul>
+        <form id="newsletter" aria-label="Formulario de suscripción">
+            <input type="email" placeholder="Ingresa tu correo" required aria-label="Correo electrónico">
+            <button type="submit" aria-label="Suscribirse al newsletter">Suscribirse</button>
+        <p id="mensaje-newsletter" class="text-success" style="display:none">Muchas gracias por suscribirte</p>
+        </form>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.5108044877015!2d-65.29557312398299!3d-24.188883478373768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f5bca584281%3A0xb1d519d50cac526d!2sFacultad%20de%20Ingenier%C3%ADa%20-%20Universidad%20Nacional%20de%20Jujuy!5e0!3m2!1ses-419!2sar!4v1776978170724!5m2!1ses-419!2sar"
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </footer>
+   
+    <script>
+        $("#newsletter").on("submit", function(event) {
+            event.preventDefault();
+            if ($(this).find("input[type='email']").val()) {
+                 $("#mensaje-newsletter").text("Muchas gracias por suscribirte").fadeIn().delay(3000).fadeOut();
+                 $('#newsletter')[0].reset();
+            } else {
+                $("#mensaje-newsletter").text("Por favor, ingresa un correo válido xd").fadeIn().delay(3000).fadeOut();
+            }
+        });
+    </script>
+   
 
 </body>
 </html>
