@@ -5,7 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lugares mas visitados</title>
     <link rel="stylesheet" href="../Assets/css/blog.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
+<!-- Filtro  del index para viajes -->
+<script>
+$(document).ready(function() {
+    const params = new URLSearchParams(window.location.search);
+    const categoria = params.get("categoria");
+
+    if (categoria === "cerros") {
+        $('#Cerros').prop('checked', true);
+        $('article').hide();
+        $('.Cerros').show();
+    } else if (categoria === "valles") {
+        $('#Valles').prop('checked', true);
+        $('article').hide();
+        $('.Valles').show();
+    } else {
+        $('#todos').prop('checked', true);
+        $('.Cerros, .Valles').show();
+    }
+/* El input hace que cuando ya esta dentro de blog destino y el usuario decida cambiar
+de filtro lo haga y no aparezca en blanco */
+    $('input[name="filtro"]').change(function() {
+        if ($('#Cerros').is(':checked')) {
+            $('article').hide();
+            $('.Cerros').show();
+        } else if ($('#Valles').is(':checked')) {
+            $('article').hide();
+            $('.Valles').show();
+        } else {
+            $('article').show();
+        }
+    });
+});
+
+</script>
+
 <body>
     <header role="banner">
         <nav role="navigation" aria-label="Menú principal">
@@ -16,6 +52,7 @@
     </header>
     <main role="main">
         <h1>Lugares favoritos de nuestros usuarios</h1>
+        
         <input type="radio" name="filtro" id="todos" checked>
         <input type="radio" name="filtro" id="Valles">
         <input type="radio" name="filtro" id="Cerros">
