@@ -54,9 +54,15 @@ main {
     width: 50%;
     box-shadow: #070805 0px 1px 3px, #070805 0px 1px 2px;
     max-width: 1000px;
-    max-height: 600px;
     margin: 50px auto;
-    align-self: center;
+}
+
+/* Responsive main */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+        margin: 20px auto;
+    }
 }
 
 .titulo {
@@ -90,16 +96,6 @@ main {
 }
 
 /* Formulario */
-@media (max-width: 768px) {
-    .formulario {
-        grid-template-columns: 1fr;
-    }
-    main {
-        width: 90%;
-        max-height: none;
-    }
-}
-
 .formulario {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -108,7 +104,15 @@ main {
     margin: auto;
 }
 
-.formulario input, .formulario textarea {
+/* Responsive form */
+@media (max-width: 768px) {
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+}
+
+.formulario input,
+.formulario textarea {
     width: 100%;
     padding: 12px 15px;
     font-size: 16px;
@@ -119,21 +123,24 @@ main {
     transition: border-color 0.3s ease;
 }
 
-.formulario input:focus, .formulario textarea:focus {
+.formulario input:focus,
+.formulario textarea:focus {
     border-color: #8d9486;
     outline: 2px solid yellow;
 }
 
-.formulario input:valid, .formulario textarea:valid {
+/* Clases usadas por jQuery */
+.valid {
     border-color: var(--color-principal);
 }
 
-.formulario input:not(:placeholder-shown):invalid,
-.formulario textarea:not(:placeholder-shown):invalid {
+.error {
     border-color: #ff4d4d;
 }
 
-.formulario textarea, .formulario button, .formulario .button {
+.formulario textarea,
+.formulario button,
+.formulario .button {
     grid-column: 1 / -1;
 }
 
@@ -145,30 +152,25 @@ main {
     border: 4px solid #ccc;
     border-top: 4px solid #00bcd4;
     border-radius: 50%;
-    margin: 10px auto;
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 15px;
+    animation: girar 1s linear infinite;
 }
 
-/* Mensaje */
+@keyframes girar {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mensajes */
 .mensaje {
     display: none;
     color: green;
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-}
-
-.formulario:valid .spinner {
-    display: block;
-    animation: girar 1s linear infinite;
-}
-
-.formulario:valid .mensaje {
-    display: block;
-}
-
-@keyframes girar {
-    from { transform: rotate(0); }
-    to { transform: rotate(360deg); }
+    grid-column: 1 / -1;
 }
 
 /* Footer */
@@ -204,7 +206,6 @@ footer a:hover {
 .boton-inicio {
     background-color: #8d9486;
     color: white;
-    border: none;
     padding: 10px 20px;
     text-decoration: none;
     font-size: 16px;
@@ -216,32 +217,7 @@ footer a:hover {
     background-color: #070805;
 }
 
-/* Boton enviar */
-.button {
-    background-color: #8d9486;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.button:hover {
-    background-color: #070805;
-}
-
-.button:active {
-    transform: scale(0.95);
-}
-
-/* Focus accesibilidad */
-a:focus, input:focus, textarea:focus, button:focus, label:focus {
-    outline: 2px solid yellow;
-}
-
-/* Boton dark mode */
+/* Botones */
 button {
     display: block;
     margin: 20px auto;
@@ -261,4 +237,17 @@ button:hover {
 
 button:active {
     transform: scale(0.95);
+}
+
+/* Responsive extra */
+@media (max-width: 480px) {
+    .formulario input,
+    .formulario textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
 }
