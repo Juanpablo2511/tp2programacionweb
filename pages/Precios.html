@@ -3,9 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Precios</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../Assets/css/Precios.css">
-        <link rel="stylesheet" href="../Assets/css/style.css">
     </head>
+    <nav class="navbar navbar-expand-lg" style="background-color: #61863f;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <i class="bi bi-compass"></i> Turismo Jujuy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Destinos.html">Destinos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Agencias.html">Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Precios.html">Precios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <body>
         <button onclick="document.body.classList.toggle('dark-mode')">
             🌙 Modo oscuro
@@ -14,7 +33,8 @@
         <main>
             <h1>Comparar Precios</h1>
             <p class="subtitulo">Todos los paquetes incluyen seguro de viaje. Consultá disponibilidad.</p>
-            <table>
+                <div class="table-responsive">
+                <table class="table table-hover table-bordered text-center align-middle">
                 <thead>
                     <tr>
                         <th>Destino</th>
@@ -31,9 +51,10 @@
                         <td>5 días</td>
                         <td class="precio">$85.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip"
+                            data-bs-placement="top"
+                            tittle="Incluye traslados desde Jujuy capital, guía certificado y visita al Cerro de los 7 Colores">
                                 Hotel 3★ + desayuno + guía
-                                <span class="tooltip-text">Incluye traslados desde Jujuy capital, guía certificado y visita al Cerro de los 7 Colores</span>
                             </span>
                         </td>
                     </tr>
@@ -43,9 +64,10 @@
                         <td>3 días</td>
                         <td class="precio">$65.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            tittle="Incluye acceso ilimitado a las termas, pensión completa y caminata guiada por los valles">
                                 Hotel + acceso termas + trekking
-                                <span class="tooltip-text">Incluye acceso ilimitado a las termas, pensión completa y caminata guiada por los valles</span>
                             </span>
                         </td>
                     </tr>
@@ -55,9 +77,10 @@
                         <td>3 días</td>
                         <td class="precio">$55.000</td>
                         <td>
-                            <span class="tooltip">
-                                Visitas guiadas + alojamiento
-                                <span class="tooltip-text">Incluye guía especializado en flora y fauna, alojamiento en cabaña y entrada al parque nacional</span>
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye guía especializado en flora y fauna, alojamiento en cabaña y entrada al parque nacional">
+                                Visitas guiadas + alojamiento 
                             </span>
                         </td>
                     </tr>
@@ -67,9 +90,10 @@
                         <td>2 días</td>
                         <td class="precio">$48.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye transporte 4x4, guía local, almuerzo típico y sesión de fotos en el salar">
                                 Transporte + guía turístico
-                                <span class="tooltip-text">Incluye transporte 4x4, guía local, almuerzo típico y sesión de fotos en el salar</span>
                             </span>
                         </td>
                     </tr>
@@ -79,9 +103,10 @@
                         <td>4 días</td>
                         <td class="precio">$78.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye visita a Tilcara, Purmamarca y Humahuaca, guía histórico-cultural y alojamiento en hostería">
                                 Hotel + guía + visitas culturales
-                                <span class="tooltip-text">Incluye visita a Tilcara, Purmamarca y Humahuaca, guía histórico-cultural y alojamiento en hostería</span>
                             </span>
                         </td>
                     </tr>
@@ -91,9 +116,10 @@
                         <td>2 días</td>
                         <td class="precio">$42.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye traslado en vehículo 4x4, guía de montaña certificado y alojamiento en refugio de altura">
                                 Transporte + guía + alojamiento
-                                <span class="tooltip-text">Incluye traslado en vehículo 4x4, guía de montaña certificado y alojamiento en refugio de altura</span>
                             </span>
                         </td>
                     </tr>
@@ -103,9 +129,10 @@
                         <td>1 día</td>
                         <td class="precio">$22.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                                data-bs-placement="top"
+                                title="Incluye transporte de ida y vuelta, guía local y almuerzo típico jujeño en el camino">
                                 Excursión + guía + almuerzo
-                                <span class="tooltip-text">Incluye transporte de ida y vuelta, guía local y almuerzo típico jujeño en el camino</span>
                             </span>
                         </td>
                     </tr>
@@ -115,9 +142,10 @@
                         <td>2 días</td>
                         <td class="precio">$38.000</td>
                         <td>
-                            <span class="tooltip">
-                                Alojamiento + desayuno + paseos
-                                <span class="tooltip-text">Incluye hospedaje en casa de campo, desayuno regional, cabalgata y visita a productores locales</span>
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye hospedaje en casa de campo, desayuno regional, cabalgata y visita a productores locales">
+                                Alojamiento + desayuno + pases libres
                             </span>
                         </td>
                     </tr>
@@ -127,14 +155,31 @@
                         <td>3 días</td>
                         <td class="precio">$70.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-placement="tooltip"
+                            data-bs-placement="top"
+                            title="Incluye traslado en camioneta 4x4, guía de montaña, hotel en Humahuaca y visita al mirador de 14 colores">
                                 Transporte 4x4 + guía + hotel
-                                <span class="tooltip-text">Incluye traslado en camioneta 4x4, guía de montaña, hotel en Humahuaca y visita al mirador de 14 colores</span>
                             </span>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
         </main>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            // Activar todos los tooltips de Bootstrap
+            $('[data-bs-toggle="tooltip"]').each(function() {
+                new bootstrap.Tooltip(this);
+            });
+
+    // Hover dinámico con jQuery en las filas
+            $('tbody tr').on('mouseenter', function() {
+            $(this).addClass('table-success');
+            }).on('mouseleave', function() {
+            $(this).removeClass('table-success');
+            });
+</script>
     </body>
 </html>
