@@ -3,95 +3,206 @@
     <head>
         <meta charset="UTF-8">
         <title>Destinos</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../Assets/css/Destinos.css">
-        <link rel="stylesheet" href="../Assets/css/style.css">
     </head>
     <body>
-        <button onclick="document.body.classList.toggle('dark-mode')">
-            🌙 Modo oscuro
-        </button>
-        <a href="../index.html" class="btn-volver">⬅ Volver al inicio</a>
-        <main>
-            <h1>Destinos Turisticos</h1>
-
-            <input type="radio" name="categoria" id="todos" checked>
-            <label for="todos">Todos</label>
-            <input type="radio" name="categoria" id="cerros">
-            <label for="cerros">Cerros</label>
-            <input type="radio" name="categoria" id="valles">
-            <label for="valles">Valles</label>
-            <input type="radio" name="categoria" id="quebrada">
-            <label for="quebrada">Quebrada</label>
-
-            <section class="galeria">
-                <a href="https://www.google.com/maps?q=Purmamarca+Jujuy" target="_blank">
-                    <article class="card cerros" data-categoria="cerros">
-                        <img src="../Assets/images/purmamarca.jpg" alt="Purmamarca">
-                        <h3>Purmamarca</h3>
-                        <p>Cerro de los 7 Colores</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Termas+de+Reyes+Jujuy" target="_blank">
-                    <article class="card valles" data-categoria="valles">
-                        <img src="../Assets/images/termasdereyes.jpg" alt="Termas de Reyes">
-                        <h3>Termas De Reyes</h3>
-                        <p>Valles</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Parque+Nacional+Calilegua">
-                    <article class="card valles" data-categoria="valles">
-                        <img src="../Assets/images/calilegua.jpg" alt="Calilegua">
-                        <h3>Parque Calilegua</h3>
-                        <p>Conoce la flora y la fauna de la provincia de Jujuy</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Salinas+Grandes+Jujuy" target="_blank">
-                    <article class="card quebrada" data-categoria="quebrada">
-                        <img src="../Assets/images/salinasgrandes.jpg" alt="Salinas Grandes">
-                        <h3>Salinas Grandes</h3>
-                        <p>Sumergete en este inmenso mar de sal</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Quebrada+de+Humahuaca" target="_blank">
-                    <article class="card quebrada" data-categoria="quebrada">
-                        <img src="../Assets/images/quebrada-de-humahuaca.webp" alt="Quebrada de Humahuaca">
-                        <h3>Quebrada de Humahuaca</h3>
-                        <p>Paisaje Patrimonio de la Humanidad</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Punta+Corral+Jujuy" target="_blank">
-                    <article class="card cerros" data-categoria="cerros">
-                        <img src="../Assets/images/marca-agua-jujuy-al-momento-1-64png.webp" alt="Punta Corral">
-                        <h3>Punta Corral</h3>
-                        <p>Famoso por su peregrinación</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Quebrada+de+Lozano" target="_blank">
-                    <article class="card quebrada" data-categoria="quebrada">
-                        <img src="../Assets/images/lozano.jpg" alt="Quebrada de Lozano">
-                        <h3>Quebrada de Lozano</h3>
-                        <p>Entrada natural a los valles</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=San+Antonio+Jujuy" target="_blank">
-                    <article class="card valles" data-categoria="valles">
-                        <img src="../Assets/images/san antonio.webp" alt="San Antonio">
-                        <h3>San Antonio</h3>
-                        <p>Tranquilidad en los valles</p>
-                    </article>
-                </a>
-                <a href="https://www.google.com/maps?q=Hornocal+Jujuy" target="_blank">
-                    <article class="card cerros" data-categoria="cerros">
-                        <img src="../Assets/images/Hornacal.webp" alt="Hornocal">
-                        <h3>Serranías del Hornocal</h3>
-                        <p>Montaña de 14 colores</p>
-                    </article>
-                </a>
-            </section>
-
-            <section>
-                <h2>Precios de Destinos</h2>
-                <table>
+ 
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #61863f;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <i class="bi bi-compass"></i> Turismo Jujuy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Destinos.html">Destinos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Agencias.html">Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="Precios.html">Precios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ 
+    <main>
+        <h1 class="text-center my-4">Destinos Turísticos</h1>
+ 
+        <!-- FILTROS -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <button class="btn-filtro active" data-filtro="todos">
+                <i class="bi bi-grid"></i> Todos
+            </button>
+            <button class="btn-filtro" data-filtro="cerros">
+                <i class="bi bi-triangle"></i> Cerros
+            </button>
+            <button class="btn-filtro" data-filtro="valles">
+                <i class="bi bi-tree"></i> Valles
+            </button>
+            <button class="btn-filtro" data-filtro="quebrada">
+                <i class="bi bi-water"></i> Quebrada
+            </button>
+        </div>
+ 
+        <div class="container">
+            <div class="row g-4">
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="cerros">
+                    <a href="https://www.google.com/maps?q=Purmamarca+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/purmamarca.jpg" class="card-img-top" alt="Purmamarca">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Cerros</span>
+                                <h5 class="card-title">Purmamarca</h5>
+                                <p class="card-text">Cerro de los 7 Colores</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="valles">
+                    <a href="https://www.google.com/maps?q=Termas+de+Reyes+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/termasdereyes.jpg" class="card-img-top" alt="Termas de Reyes">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Valles</span>
+                                <h5 class="card-title">Termas de Reyes</h5>
+                                <p class="card-text">Un marco natural imponente</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="valles">
+                    <a href="https://www.google.com/maps?q=Parque+Nacional+Calilegua" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/calilegua.jpg" class="card-img-top" alt="Parque Calilegua">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Valles</span>
+                                <h5 class="card-title">Parque Calilegua</h5>
+                                <p class="card-text">Conocé la flora y fauna de la provincia</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="quebrada">
+                    <a href="https://www.google.com/maps?q=Salinas+Grandes+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/salinasgrandes.jpg" class="card-img-top" alt="Salinas Grandes">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Quebrada</span>
+                                <h5 class="card-title">Salinas Grandes</h5>
+                                <p class="card-text">Un inmenso mar de sal</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="quebrada">
+                    <a href="https://www.google.com/maps?q=Quebrada+de+Humahuaca" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/quebrada-de-humahuaca.webp" class="card-img-top" alt="Quebrada de Humahuaca">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Quebrada</span>
+                                <h5 class="card-title">Quebrada de Humahuaca</h5>
+                                <p class="card-text">Patrimonio de la Humanidad</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="cerros">
+                    <a href="https://www.google.com/maps?q=Punta+Corral+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/marca-agua-jujuy-al-momento-1-64png.webp" class="card-img-top" alt="Punta Corral">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Cerros</span>
+                                <h5 class="card-title">Punta Corral</h5>
+                                <p class="card-text">Famoso por su peregrinación</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="quebrada">
+                    <a href="https://www.google.com/maps?q=Quebrada+de+Lozano" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/lozano.jpg" class="card-img-top" alt="Quebrada de Lozano">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Quebrada</span>
+                                <h5 class="card-title">Quebrada de Lozano</h5>
+                                <p class="card-text">Entrada natural a los valles</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="valles">
+                    <a href="https://www.google.com/maps?q=San+Antonio+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/san antonio.webp" class="card-img-top" alt="San Antonio">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Valles</span>
+                                <h5 class="card-title">San Antonio</h5>
+                                <p class="card-text">Tranquilidad en los valles</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+                <div class="col-12 col-md-6 col-lg-4 card-destino" data-categoria="cerros">
+                    <a href="https://www.google.com/maps?q=Hornocal+Jujuy" target="_blank" class="text-decoration-none">
+                        <div class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="../Assets/images/Hornacal.webp" class="card-img-top" alt="Hornocal">
+                                <div class="card-overlay"><i class="bi bi-geo-alt-fill"></i> Ver en mapa</div>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge mb-2">Cerros</span>
+                                <h5 class="card-title">Serranías del Hornocal</h5>
+                                <p class="card-text">Montaña de 14 colores</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+ 
+            </div>
+        </div>
+ 
+         
+        <section class="container mt-5">
+            <h2 class="text-center mb-3">Precios de Destinos</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered text-center">
                     <thead>
                         <tr>
                             <th>Destino</th>
@@ -100,50 +211,52 @@
                         </tr>
                     </thead>
                     <tbody id="tabla-precios">
-                        <!-- Las filas se generan con JS según el filtro -->
+                        <tr data-categoria="cerros"><td>Purmamarca</td><td>$85.000</td><td>5</td></tr>
+                        <tr data-categoria="valles"><td>Termas de Reyes</td><td>$65.000</td><td>3</td></tr>
+                        <tr data-categoria="valles"><td>Parque Calilegua</td><td>$55.000</td><td>3</td></tr>
+                        <tr data-categoria="quebrada"><td>Salinas Grandes</td><td>$48.000</td><td>2</td></tr>
+                        <tr data-categoria="quebrada"><td>Quebrada de Humahuaca</td><td>$78.000</td><td>4</td></tr>
+                        <tr data-categoria="cerros"><td>Punta Corral</td><td>$42.000</td><td>2</td></tr>
+                        <tr data-categoria="quebrada"><td>Quebrada de Lozano</td><td>$22.000</td><td>1</td></tr>
+                        <tr data-categoria="valles"><td>San Antonio</td><td>$38.000</td><td>2</td></tr>
+                        <tr data-categoria="cerros"><td>Serranías del Hornocal</td><td>$70.000</td><td>3</td></tr>
                     </tbody>
                 </table>
-            </section>
-        </main>
-
-        <script>
-            // Datos de todos los destinos con su categoría
-            const destinos = [
-                { nombre: "Purmamarca",             precio: "$85.000", dias: 5, categoria: "cerros"   },
-                { nombre: "Termas de Reyes",         precio: "$65.000", dias: 3, categoria: "valles"   },
-                { nombre: "Parque Calilegua",        precio: "$55.000", dias: 3, categoria: "valles"   },
-                { nombre: "Salinas Grandes",         precio: "$48.000", dias: 2, categoria: "quebrada" },
-                { nombre: "Quebrada de Humahuaca",   precio: "$78.000", dias: 4, categoria: "quebrada" },
-                { nombre: "Punta Corral",            precio: "$42.000", dias: 2, categoria: "cerros"   },
-                { nombre: "Quebrada de Lozano",      precio: "$22.000", dias: 1, categoria: "quebrada" },
-                { nombre: "San Antonio",             precio: "$38.000", dias: 2, categoria: "valles"   },
-                { nombre: "Serranías del Hornocal",  precio: "$70.000", dias: 3, categoria: "cerros"   },
-            ];
-
-            function actualizarTabla(categoriaSeleccionada) {
-                const tbody = document.getElementById("tabla-precios");
-                const filtrados = categoriaSeleccionada === "todos"
-                    ? destinos
-                    : destinos.filter(d => d.categoria === categoriaSeleccionada);
-
-                tbody.innerHTML = filtrados.map(d => `
-                    <tr>
-                        <td>${d.nombre}</td>
-                        <td>${d.precio}</td>
-                        <td>${d.dias}</td>
-                    </tr>
-                `).join("");
-            }
-
-            // Escuchar cambios en los radio buttons
-            document.querySelectorAll('input[name="categoria"]').forEach(radio => {
-                radio.addEventListener("change", () => {
-                    actualizarTabla(radio.id);
+            </div>
+        </section>
+ 
+    </main>
+ 
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $('.btn-filtro').on('click', function() {
+            $('.btn-filtro').removeClass('active');
+            $(this).addClass('active');
+ 
+            const filtro = $(this).data('filtro');
+ 
+            if (filtro === 'todos') {
+                $('.card-destino').show(300);
+                $('#tabla-precios tr').show(300);
+            } else {
+                $('.card-destino').each(function() {
+                    if ($(this).data('categoria') === filtro) {
+                        $(this).show(300);
+                    } else {
+                        $(this).hide(300);
+                    }
                 });
-            });
-
-            // Cargar tabla al inicio con "todos"
-            actualizarTabla("todos");
-        </script>
+                $('#tabla-precios tr').each(function() {
+                    if ($(this).data('categoria') === filtro) {
+                        $(this).show(300);
+                    } else {
+                        $(this).hide(300);
+                    }
+                });
+            }
+        });
+    </script>
+ 
     </body>
 </html>
