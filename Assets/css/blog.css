@@ -10,6 +10,7 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
+/* modo oscuro */
 body.dark {
     background-color: #111;
     color: white;
@@ -21,24 +22,31 @@ body.dark article {
     color: white;
 }
 
-/* TEXTOS dentro de artículos */
+
 body.dark article p,
 body.dark article h2 {
     color: white;
 }
 
-/* FILTROS */
-body.dark .filtros label {
-    background: #333;
+
+.btn-darkmode {
+    background-color: var(--color-principal);
     color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
+
+
 
 /* COMENTARIOS */
 body.dark .comentario p {
     color: white;
 }
 
-/* INPUTS (si tenés) */
+
 body.dark input,
 body.dark textarea {
     background-color: #222;
@@ -82,18 +90,29 @@ h1 {
     margin-bottom: 20px;
 }
 
-.filtros input {
-    display: none;
-}
 
-.filtros label {
-    background: #ccc;
+.filtro-btn {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
     padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
     border-radius: 20px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.filtro-btn:hover {
+    background-color: var(--color-secundario);
+}
+
+.filtro-btn:active {
+    transform: scale(0.95);
+}
+.filtro-btn.activo {
+    background-color: var(--color-secundario);
+    transform: scale(1.05);
+}
 /* grid */
 .destinos {
     display: grid;
@@ -140,13 +159,7 @@ article img {
 }
 
 
-#Cerros:checked ~ .destinos .Valles {
-    display: none;
-}
 
-#Valles:checked ~ .destinos .Cerros {
-    display: none;
-}
 
 /* SCROLL REVEAL */
 @keyframes aparecer {
@@ -185,13 +198,4 @@ article img {
     margin: 0;
     font-size: 14px;
 }
-input[type="radio"] {
-    display: none;
-}
-button, label.button {
-    transition: transform 0.2s ease;
-}
 
-button:active, label.button:active {
-    transform: scale(0.95);
-}
