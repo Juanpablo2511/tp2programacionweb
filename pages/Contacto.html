@@ -18,16 +18,14 @@
         <input type="checkbox" id="cerrar-modal" style="display:none">
 
         <form class="formulario" action="#" method="post" aria-label="Formulario de contacto">
-            <input  id="correo" type="email" placeholder="Correo electronico" required aria-label="Correo electronico">
+            <input id="correo" type="email" placeholder="Correo electronico" required aria-label="Correo electronico">
             <input id="asunto" type="text" placeholder="Asunto" required aria-label="Asunto">
             <textarea id="mensajeTexto" placeholder="Escribe tu mensaje aquí" required aria-label="Mensaje"></textarea>
             <p id="mensajeCorreo" class="mensaje" role="alert"></p>
             <p id="mensajeAsunto" class="mensaje" role="alert"></p>
             <p id="mensajeMensaje" class="mensaje" role="alert"></p>
-
             <button id="enviar" type="submit">Enviar</button>
             <div class="spinner" aria-label="Cargando"></div>
-            
         </form>
 
         <div class="modal" role="dialog" aria-label="Confirmación de envío">
@@ -37,75 +35,7 @@
                 <label for="cerrar-modal" aria-label="Cerrar modal">Cerrar</label>
             </div>
         </div>
-   <script>
-    // 🔹 Validación en tiempo real - CORREO
-    $('#correo').on('input', function() {
-        let email = $(this).val();
 
-        if (email.includes('@') && email.includes('.')) {
-            $(this).removeClass('error').addClass('valid');
-            $('#mensajeCorreo').text('');
-        } else {
-            $(this).removeClass('valid').addClass('error');
-            $('#mensajeCorreo').text('Correo no válido');
-        }
-    });
-
-    // 🔹 Validación en tiempo real - ASUNTO
-    $('#asunto').on('input', function() {
-        let asunto = $(this).val();
-
-        if (asunto.trim().length > 0) {
-            $(this).removeClass('error').addClass('valid');
-            $('#mensajeAsunto').text('');
-        } else {
-            $(this).removeClass('valid').addClass('error');
-            $('#mensajeAsunto').text('Asunto inválido');
-        }
-    });
-/* validacion de texto */
-        $('#mensajeTexto').on('input', function() {
-            let mensaje = $(this).val();
-    
-            if (mensaje.trim().length > 0) {
-                $(this).removeClass('error').addClass('valid');
-                $('#mensajeMensaje').text('');
-            } else {
-                $(this).removeClass('valid').addClass('error');
-                $('#mensajeMensaje').text('Mensaje inválido');
-            }
-        });
-
-    // 🔹 Envío del formulario
-    $('.formulario').submit(function(e) {
-        e.preventDefault();
-
-        // Obtener valores
-        let mensaje = $('textarea').val();
-        let email = $('#correo').val();
-        let asunto = $('#asunto').val();
-
-        // Validaciones
-        let correoValido = email.includes('@') && email.includes('.');
-        let asuntoValido = asunto.trim().length > 0;
-        let mensajeValido = mensaje.trim().length > 0;
-
-        // Si algo está mal, NO continúa
-        if (!correoValido || !asuntoValido || !mensajeValido) {
-            return;
-        }
-
-        // Mostrar spinner
-        $('.spinner').show();
-
-        // Simular envío
-        setTimeout(function() {
-            $('.spinner').hide();
-          
-            $('#cerrar-modal').prop('checked', true);
-        }, 2000);
-    });
-</script>
         <button onclick="toggleDarkMode()" aria-label="Activar modo oscuro">Modo oscuro</button>
     </main>
 
@@ -113,7 +43,6 @@
         <ul>
             <li><a class="boton-inicio" href="../index.html" aria-label="Volver al inicio">Inicio</a></li>
             <li><a href="https://maps.app.goo.gl/j1ZGdCBHEbtTEC1y9" aria-label="Ver ubicación en el mapa">Donde ubicarnos</a></li>
-            
         </ul>
     </footer>
 
@@ -121,6 +50,81 @@
         function toggleDarkMode() {
             document.body.classList.toggle("dark");
         }
+    </script>
+
+    <script>
+        function sanitizar(texto) {
+            return texto.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        $(document).ready(function() {
+
+            // Validación CORREO
+            $('#correo').on('input', function() {
+                let email = $(this).val();
+                if (email.includes('@') && email.includes('.')) {
+                    $(this).removeClass('error').addClass('valid');
+                    $('#mensajeCorreo').text('');
+                } else {
+                    $(this).removeClass('valid').addClass('error');
+                    $('#mensajeCorreo').text('Correo no válido');
+                }
+            });
+
+            // Validación ASUNTO
+            $('#asunto').on('input', function() {
+                let asunto = $(this).val();
+                if (asunto.trim().length > 0) {
+                    $(this).removeClass('error').addClass('valid');
+                    $('#mensajeAsunto').text('');
+                } else {
+                    $(this).removeClass('valid').addClass('error');
+                    $('#mensajeAsunto').text('Asunto inválido');
+                }
+            });
+
+            // Validación MENSAJE
+            $('#mensajeTexto').on('input', function() {
+                let mensaje = $(this).val();
+                if (mensaje.trim().length > 0) {
+                    $(this).removeClass('error').addClass('valid');
+                    $('#mensajeMensaje').text('');
+                } else {
+                    $(this).removeClass('valid').addClass('error');
+                    $('#mensajeMensaje').text('Mensaje inválido');
+                }
+            });
+
+            // Envío del formulario
+            $('.formulario').submit(function(e) {
+                e.preventDefault();
+
+                // Obtener valores y sanitizarlos
+                let email = sanitizar($('#correo').val());
+                let asunto = sanitizar($('#asunto').val());
+                let mensaje = sanitizar($('#mensajeTexto').val());
+
+                // Validaciones
+                let correoValido = email.includes('@') && email.includes('.');
+                let asuntoValido = asunto.trim().length > 0;
+                let mensajeValido = mensaje.trim().length > 0;
+
+                // Si algo está mal no continúa
+                if (!correoValido || !asuntoValido || !mensajeValido) {
+                    return;
+                }
+
+                
+                $('.spinner').show();
+
+             
+                setTimeout(function() {
+                    $('.spinner').hide();
+                    $('#cerrar-modal').prop('checked', true);
+                }, 2000);
+            });
+
+        });
     </script>
 
 </body>

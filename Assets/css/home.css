@@ -57,7 +57,9 @@ body.dark .testimonio h3 {
 body.dark footer {
     background-color: #000;
 }
-
+body.dark .sprite {
+    filter: invert(1);
+}
 /* Focus accesibilidad */
 a:focus, input:focus, textarea:focus, button:focus, label:focus {
     outline: 2px solid yellow;
@@ -366,3 +368,14 @@ footer a:hover {
     border-radius: 5px;
     font-size: 16px;
 }
+.sprite {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('/Assets/images/iconos-redes.png');
+    background-size: 96px 32px;
+}
+
+.sprite-instagram { background-position: 0px 0px; }
+.sprite-facebook { background-position: -32px 0px; }
+.sprite-twitter { background-position: -64px 0px; }
