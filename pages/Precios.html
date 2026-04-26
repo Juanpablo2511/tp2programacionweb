@@ -3,19 +3,56 @@
     <head>
         <meta charset="UTF-8">
         <title>Precios</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../Assets/css/Precios.css">
         <link rel="stylesheet" href="../Assets/css/style.css">
     </head>
     <body>
-        <button onclick="document.body.classList.toggle('dark-mode')">
-            🌙 Modo oscuro
-        </button>
-        <a href="../index.html" class="btn-volver">⬅ Volver al inicio</a>
-        <main>
-            <h1>Comparar Precios</h1>
-            <p class="subtitulo">Todos los paquetes incluyen seguro de viaje. Consultá disponibilidad.</p>
-            <table>
-                <thead>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #61863f;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <i class="bi bi-compass"></i> Turismo Jujuy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../index.html">
+                            <span class="sprite sprite-inicio"></span> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="Destinos.html">
+                            <span class="sprite sprite-destinos"></span> Destinos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="Agencias.html">
+                            <span class="sprite sprite-agencias"></span> Agencias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="Precios.html">
+                            <span class="sprite sprite-precios"></span> Precios
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <h1 class="text-center mb-2">Comparar Precios</h1>
+        <p class="text-center text-muted mb-4">Todos los paquetes incluyen seguro de viaje. Consultá disponibilidad.</p>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center align-middle">
+                <thead class="table-dark">
                     <tr>
                         <th>Destino</th>
                         <th>Imagen</th>
@@ -27,114 +64,132 @@
                 <tbody>
                     <tr>
                         <td class="nombre-destino">Purmamarca</td>
-                        <td><img src="../Assets/images/purmamarca.jpg" alt="Purmamarca"></td>
+                        <td><img src="../Assets/images/purmamarca.jpg" alt="Purmamarca" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>5 días</td>
-                        <td class="precio">$85.000</td>
+                        <td class="precio fw-bold">$85.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye traslados desde Jujuy capital, guía certificado y visita al Cerro de los 7 Colores">
                                 Hotel 3★ + desayuno + guía
-                                <span class="tooltip-text">Incluye traslados desde Jujuy capital, guía certificado y visita al Cerro de los 7 Colores</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Termas de Reyes</td>
-                        <td><img src="../Assets/images/termasdereyes.jpg" alt="Termas de Reyes"></td>
+                        <td><img src="../Assets/images/termasdereyes.jpg" alt="Termas de Reyes" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>3 días</td>
-                        <td class="precio">$65.000</td>
+                        <td class="precio fw-bold">$65.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye acceso ilimitado a las termas, pensión completa y caminata guiada por los valles">
                                 Hotel + acceso termas + trekking
-                                <span class="tooltip-text">Incluye acceso ilimitado a las termas, pensión completa y caminata guiada por los valles</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Parque Calilegua</td>
-                        <td><img src="../Assets/images/calilegua.jpg" alt="Parque Calilegua"></td>
+                        <td><img src="../Assets/images/calilegua.jpg" alt="Parque Calilegua" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>3 días</td>
-                        <td class="precio">$55.000</td>
+                        <td class="precio fw-bold">$55.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye guía especializado en flora y fauna, alojamiento en cabaña y entrada al parque nacional">
                                 Visitas guiadas + alojamiento
-                                <span class="tooltip-text">Incluye guía especializado en flora y fauna, alojamiento en cabaña y entrada al parque nacional</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Salinas Grandes</td>
-                        <td><img src="../Assets/images/salinasgrandes.jpg" alt="Salinas Grandes"></td>
+                        <td><img src="../Assets/images/salinasgrandes.jpg" alt="Salinas Grandes" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>2 días</td>
-                        <td class="precio">$48.000</td>
+                        <td class="precio fw-bold">$48.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye transporte 4x4, guía local, almuerzo típico y sesión de fotos en el salar">
                                 Transporte + guía turístico
-                                <span class="tooltip-text">Incluye transporte 4x4, guía local, almuerzo típico y sesión de fotos en el salar</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Quebrada de Humahuaca</td>
-                        <td><img src="../Assets/images/quebrada-de-humahuaca.webp" alt="Quebrada de Humahuaca"></td>
+                        <td><img src="../Assets/images/quebrada-de-humahuaca.webp" alt="Quebrada de Humahuaca" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>4 días</td>
-                        <td class="precio">$78.000</td>
+                        <td class="precio fw-bold">$78.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye visita a Tilcara, Purmamarca y Humahuaca, guía histórico-cultural y alojamiento en hostería">
                                 Hotel + guía + visitas culturales
-                                <span class="tooltip-text">Incluye visita a Tilcara, Purmamarca y Humahuaca, guía histórico-cultural y alojamiento en hostería</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Punta Corral</td>
-                        <td><img src="../Assets/images/marca-agua-jujuy-al-momento-1-64png.webp" alt="Punta Corral"></td>
+                        <td><img src="../Assets/images/marca-agua-jujuy-al-momento-1-64png.webp" alt="Punta Corral" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>2 días</td>
-                        <td class="precio">$42.000</td>
+                        <td class="precio fw-bold">$42.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye traslado en vehículo 4x4, guía de montaña certificado y alojamiento en refugio de altura">
                                 Transporte + guía + alojamiento
-                                <span class="tooltip-text">Incluye traslado en vehículo 4x4, guía de montaña certificado y alojamiento en refugio de altura</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Quebrada de Lozano</td>
-                        <td><img src="../Assets/images/lozano.jpg" alt="Quebrada de Lozano"></td>
+                        <td><img src="../Assets/images/lozano.jpg" alt="Quebrada de Lozano" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>1 día</td>
-                        <td class="precio">$22.000</td>
+                        <td class="precio fw-bold">$22.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye transporte de ida y vuelta, guía local y almuerzo típico jujeño en el camino">
                                 Excursión + guía + almuerzo
-                                <span class="tooltip-text">Incluye transporte de ida y vuelta, guía local y almuerzo típico jujeño en el camino</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">San Antonio</td>
-                        <td><img src="../Assets/images/san antonio.webp" alt="San Antonio"></td>
+                        <td><img src="../Assets/images/san antonio.webp" alt="San Antonio" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>2 días</td>
-                        <td class="precio">$38.000</td>
+                        <td class="precio fw-bold">$38.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye hospedaje en casa de campo, desayuno regional, cabalgata y visita a productores locales">
                                 Alojamiento + desayuno + paseos
-                                <span class="tooltip-text">Incluye hospedaje en casa de campo, desayuno regional, cabalgata y visita a productores locales</span>
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td class="nombre-destino">Serranías del Hornocal</td>
-                        <td><img src="../Assets/images/Hornacal.webp" alt="Hornocal"></td>
+                        <td><img src="../Assets/images/Hornacal.webp" alt="Hornocal" style="width:80px; height:55px; object-fit:cover; border-radius:6px;"></td>
                         <td>3 días</td>
-                        <td class="precio">$70.000</td>
+                        <td class="precio fw-bold">$70.000</td>
                         <td>
-                            <span class="tooltip">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Incluye traslado en camioneta 4x4, guía de montaña, hotel en Humahuaca y visita al mirador de 14 colores">
                                 Transporte 4x4 + guía + hotel
-                                <span class="tooltip-text">Incluye traslado en camioneta 4x4, guía de montaña, hotel en Humahuaca y visita al mirador de 14 colores</span>
                             </span>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </main>
+        </div>
+    </main>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // Activar tooltips de Bootstrap con jQuery
+        $('[data-bs-toggle="tooltip"]').each(function() {
+            new bootstrap.Tooltip(this);
+        });
+
+        // Hover dinámico con jQuery
+        $('tbody tr').on('mouseenter', function() {
+            $(this).addClass('table-success');
+        }).on('mouseleave', function() {
+            $(this).removeClass('table-success');
+        });
+    </script>
+
     </body>
 </html>
