@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo Educativo - Phishing</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .hero-phishing {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero-phishing h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        .hero-phishing p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        .email-falso {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+        .email-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .pista {
+            cursor: pointer;
+            border-bottom: 2px dashed red;
+            color: inherit;
+            transition: background 0.2s;
+        }
+        .pista:hover {
+            background-color: #fff3cd;
+        }
+        .pista.encontrada {
+            background-color: #d4edda;
+            border-bottom-color: green;
+        }
+        .contador-pistas {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .señal-card {
+            border-left: 4px solid #dc3545;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .señal-card i {
+            color: #dc3545;
+            font-size: 1.3rem;
+        }
+        .btn-phishing {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .btn-phishing:hover {
+            background-color: #b02a37;
+            color: white;
+            transform: scale(1.05);
+        }
+        #feedback-final {
+            display: none;
+            animation: aparecer 0.5s ease;
+        }
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" style="background-color: #61863f;">
+    <div class="container">
+        <a class="navbar-brand text-white" href="../index.html">
+            <i class="bi bi-compass"></i> Turismo Jujuy
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="../index.html"><span class="sprite sprite-inicio"></span> Inicio</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Destinos.html"><span class="sprite sprite-destinos"></span> Destinos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Agencias.html"><span class="sprite sprite-agencias"></span> Agencias</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Precios.html"><span class="sprite sprite-precios"></span> Precios</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="BlogDestinos.html"><span class="sprite sprite-blog"></span> Blogs de Destinos</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-phishing">
+    <i class="bi bi-shield-exclamation" style="font-size: 3rem; color: #dc3545;"></i>
+    <h1 class="mt-3">Módulo Educativo: Phishing</h1>
+    <p>Aprendé a identificar correos falsos y protegé tu información personal</p>
+    <button class="btn-phishing mt-3" data-bs-toggle="modal" data-bs-target="#modalPhishing">
+        <i class="bi bi-exclamation-triangle"></i> Ver Simulación de Phishing
+    </button>
+</div>
+
+<main class="container py-5">
+
+    <!-- SEÑALES DE FRAUDE -->
+    <h2 class="text-center mb-4"><i class="bi bi-eye"></i> Señales de fraude más comunes</h2>
+    <div class="row g-3 mb-5">
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-envelope-x"></i>
+                <strong> Remitente sospechoso</strong>
+                <p class="mb-0 mt-1 text-muted">El correo viene de dominios raros como <code>banco-seguro@gmail.com</code> en vez del dominio oficial.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-link-45deg"></i>
+                <strong> Links falsos</strong>
+                <p class="mb-0 mt-1 text-muted">El texto dice "www.banco.com" pero al pasar el mouse el link lleva a otro lado.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-exclamation-circle"></i>
+                <strong> Urgencia exagerada</strong>
+                <p class="mb-0 mt-1 text-muted">Frases como "¡Tu cuenta será bloqueada en 24 horas!" buscan que actúes sin pensar.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-spell-check"></i>
+                <strong> Errores de ortografía</strong>
+                <p class="mb-0 mt-1 text-muted">Los correos falsos suelen tener errores gramaticales o de ortografía.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-key"></i>
+                <strong> Piden datos personales</strong>
+                <p class="mb-0 mt-1 text-muted">Ningún banco o empresa legítima te pide contraseñas o números de tarjeta por email.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="señal-card">
+                <i class="bi bi-gift"></i>
+                <strong> Premios o regalos falsos</strong>
+                <p class="mb-0 mt-1 text-muted">"¡Ganaste un iPhone!" — si no participaste en nada, no ganaste nada.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EJERCICIO INTERACTIVO -->
+    <h2 class="text-center mb-2"><i class="bi bi-search"></i> Ejemplo de Pishing por correo</h2>
+   
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-8">
+            <div class="email-falso">
+                <div class="email-header">
+                    <p class="mb-1"><strong>De:</strong> <span class="pista" data-pista="1" data-tip="¡El remitente no es oficial! Un banco real usa @banco.com.ar, no @gmail.com">seguridad-banco@gmail.com</span></p>
+                    <p class="mb-1"><strong>Para:</strong> usuario@email.com</p>
+                    <p class="mb-0"><strong>Asunto:</strong> <span class="pista" data-pista="2" data-tip="¡Urgencia falsa! Los bancos reales no amenazan con bloquear cuentas por email">⚠️ URGENTE: Tu cuenta será BLOQUEADA en 24 horas</span></p>
+                </div>
+                <p>Estimado cliente,</p>
+                <p>Hemos detectado actividad <span class="pista" data-pista="3" data-tip="Error de ortografía: 'suzpechosa' no existe. Los correos falsos suelen tener errores.">suzpechosa</span> en su cuenta. Para evitar el bloqueo definitivo, debe verificar sus datos inmediatamente.</p>
+                
+                <p>Necesitamos que ingrese su   ntraseña y número de tarjeta</span> para confirmar su identidad.</p>
+                <p>Atentamente,<br>El Equipo de Seguridad</p>
+            </div>
+        </div>
+    </div>
+
+   
+
+ 
+
+</main>
+
+<!-- MODAL DE PHISHING -->
+<div class="modal fade" id="modalPhishing" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title"><i class="bi bi-shield-exclamation"></i> ⚠️ Simulación Educativa de Phishing</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <strong> Advertencia:</strong> Lo que vas a ver es un ejemplo educativo.
+                </div>
+
+                <h6 class="fw-bold mb-3">¿Qué es el Phishing?</h6>
+                <p>El phishing es un tipo de estafa digital donde los atacantes se hacen pasar por empresas o personas de confianza para robar tus datos personales como contraseñas, números de tarjeta o información bancaria.</p>
+
+                <h6 class="fw-bold mb-3">Ejemplo de correo falso:</h6>
+                <div class="bg-light p-3 rounded border mb-3" style="font-family: monospace; font-size: 13px;">
+                    <p><strong>De:</strong> <span class="text-danger">soporte-urgente@tubanc0.com</span> ← dominio falso con número</p>
+                    <p><strong>Asunto:</strong> <span class="text-danger">¡CUENTA BLOQUEADA! Verificá ahora</span></p>
+                    <p><strong>Mensaje:</strong> "Estimado usuario, su cuenta fue comprometida. Ingrese aquí para verificar: <span class="text-danger">http://banco-seguro-login.xyz</span>"</p>
+                </div>
+
+                <h6 class="fw-bold mb-2">Señales de fraude en este ejemplo:</h6>
+                <ul>
+                    <li>🔴 El dominio tiene un <strong>número en vez de letra</strong> (tubanc<strong>0</strong>.com)</li>
+                    <li>🔴 El asunto genera <strong>miedo y urgencia</strong></li>
+                    <li>🔴 El link lleva a un <strong>dominio desconocido</strong> (.xyz)</li>
+                    <li>🔴 Te pide que <strong>ingreses datos</strong> haciendo click en un link</li>
+                    <li>🔴 No te llama por tu <strong>nombre real</strong>, dice "usuario"</li>
+                </ul>
+
+                <div class="alert alert-info mt-3">
+                    <i class="bi bi-lightbulb-fill"></i>
+                    <strong> Consejo:</strong> Si recibís un correo sospechoso, no hagas click en ningún link. Entrá directamente al sitio oficial desde tu navegador.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                    <i class="bi bi-check-circle"></i> Entendido, voy a practicar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</body>
