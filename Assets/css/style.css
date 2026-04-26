@@ -71,3 +71,27 @@ button {
 .btn-volver:hover {
     opacity: 0.8;
 }
+.sprite {
+    display: inline-block;
+    background-image: url('../images/sprites.png');
+    background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+}
+
+.sprite-precios {
+    background-position: 0px 0px; /* arriba izquierda = $ */
+}
+
+.sprite-agencias {
+    background-position: -36px 0px; /* arriba derecha = edificio */
+}
+
+.sprite-destinos {
+    background-position: 0px -36px; /* abajo izquierda = columnas */
+}
+
+.sprite-inicio {
+    background-position: -36px -36px; /* abajo derecha = casa */
+}
