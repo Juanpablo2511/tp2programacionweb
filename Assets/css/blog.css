@@ -30,13 +30,19 @@ body.dark article h2 {
 
 
 .btn-darkmode {
-    background-color: var(--color-principal);
+    display: block !important;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background: var(--color-principal);
     color: white;
     border: none;
-    padding: 8px 15px;
     border-radius: 20px;
     cursor: pointer;
     transition: background 0.3s ease;
+}
+
+.btn-darkmode:hover {
+    background: var(--color-secundario);
 }
 
 
@@ -87,6 +93,8 @@ h1 {
 /* FILTROS */
 .filtros {
     text-align: center;
+    display: flex;
+    justify-content: center;    
     margin-bottom: 20px;
 }
 
